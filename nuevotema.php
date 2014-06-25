@@ -19,29 +19,28 @@
 
 <!DOCTYPE html>
 <html>
-  <center>
-    <head>
-      <title>Nuevo Tema</title>
-      <!-- Bootstrap -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
-    </head>
-    <body>
+  <head>
+    <title>Nuevo Tema</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
       <!n--<link de regreso>-->
-      <table border='0' width=90% align='center'>
+      <table>
         <tr>
-        <td align='right'><a href='index.php'>BLOG Super overpower</a></td>
+         <td align='right'><a href='index.php'>BLOG Super overpower</a></td>
         </tr>
-        </table>
-
-    <?php
+      </table>
+      <?php
       echo"<form action='nuevotema.php' method='post' name='nuevotema'><br>";
-        echo "<table border='0' width=70% align='center'>";
+        echo "<table>";
           echo "<tr><td><b>Nuevo Tema</b></td></tr>";
           echo "<tr>";
             echo"<td><label>Tema : <input name='txttema' type='text'  id='txttema' value='' ></td>";
@@ -54,14 +53,13 @@
           echo "</tr>";
         echo "</table>";
       echo "</form>";
-    ?>
-
-      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-      <!-- Include all compiled plugins (below), or include individual files as needed -->
-      <script src="js/bootstrap.min.js"></script>
-    </body>
-  </center>
+      ?>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
 </html>
 
 <?php 

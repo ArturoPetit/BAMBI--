@@ -51,12 +51,13 @@
     <![endif]-->
   </head>
   <body>
-    <table border='0' width=90% align='center'>
+   <div class="container">
+    <table>
         <tr>
         <td align='right'><a href='index.php'>BLOG Super overpower</a></td>
         </tr>
         </table>
-    <table border="1"> 
+    <table> 
       <form action="registro.php" method="post" name="registro"><br>
         <tr><td><h2>Registro<h2></td></tr> 
         <tr><td><?php echo $mensaje; ?></td><tr>    
@@ -66,7 +67,8 @@
         <tr><td><input type="submit" value="Enviar"> </td></tr>
       </form> 
     </table>
-     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
