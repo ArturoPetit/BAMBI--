@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<META CHARSET="UTF-8">
+<html>
+  <head>
+    <title>Control de usuario</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+<body>
+
+  <?php 
+  #CONTROL DE USUARIOS
+    session_start();
+    include_once("settings/settings.inc.php");
+    if (isset($_SESSION['tipo'])) 
+    {
+      if ($_SESSION['tipo']==1) {
+        if (isset($_GET['idel']))
+        {
+          $conexion = @mysql_connect(SQL_HOST, SQL_USER, SQL_PWD);
+          $db =@ mysql_select_db(SQL_DB, $conexion) or die(); 
+          $sql="DELETE FROM usuarios WHERE id ='".$_GET['idel']."'";
+          $usrs=@mysql_query($sql,$conexion);
+        }
+        if (isset($_GET['idus']))
+        {
+          $conexion = @mysql_connect(SQL_HOST, SQL_USER, SQL_PWD);
+          $db =@ mysql_select_db(SQL_DB, $conexion) or die();
+          $sql="UPDATE usuarios SET `tipo`='".$_GET['tipo']."' WHERE id='".$_GET['idus']."';";
+          $usrs=@mysql_query($sql,$conexion);
+        }
+        
+      $conexion=@mysql_connect(SQL_HOST, SQL_USER, SQL_PWD);
+      $db =@ mysql_select_db(SQL_DB, $conexion) or die();
+      $sql="SELECT * FROM usuarios;";
+      $usrs=@mysql_query($sql,$conexion);
+      #Link de regreso
+      echo "<table border='0' width=90% align='center'>";
+      echo "<tr>";
+      echo "<td align='right'><a href='index.php'>BLOG Super overpower</a></td>";
+      echo"</tr>";
+      echo "</table>";
+      echo "<table border='1' width=50% align='center'>";
+      echo "<tr><td><b>Nombre</b></td><td><b>Usuario</b></td><td><b>Tipo</b></td><td colspan='3'><b>Acciones</b></td></tr>";
+      while  ($user =@mysql_fetch_array($usrs))
+      {
+        echo "<tr>";
+          echo"<td>".$user['nombre']."</td>"; 
+          echo"<td>".$user['usuarios']."</td>";
+          echo"<td>".$user['tipo']."</td>";
+          echo"<td align='center'><a href='editarusuarios.php?idus=".$user['id']."&tipo=1'>Administrador</a> | <a href='editarusuarios.php?idus=".$user['id']."&tipo=2'>Editor</a> | <a href='editarusuarios.php?idus=".$user['id']."&tipo=3'>Registrado</a></td>";
+          echo"<td><a href='editarusuarios.php?idel=".$user['id']."'>eliminar</a></td>";
+          echo"<td><a href='editarcontra.php?idcontra=".$user['id']."'>editarpassword</a></td>";
+        echo"</tr>";
+      }
+      echo "</table>";
+      }
+    }
+    else {
+      header('location:index.php');   
+    }
+  ?>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
