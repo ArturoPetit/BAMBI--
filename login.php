@@ -39,21 +39,46 @@
   </head>
   <body>
     <div class="container">
-      <table>
-        <tr>
-         <td align='right'><a href='index.php'>BLOG Super overpower</a></td>
-        </tr>
-      </table>
-      <table> 
-        <form action="validarlogin.php" method="post" name="login"><br>
-          <tr><td><h2>Inicio de Sesion<h2></td></tr>    
-          <tr><td><?php echo $mensaje; ?></td><tr> 
-          <tr><td><label>Usuario : <input name="txtusuario" type="text"  id="txtusuario" value="" ></td></tr>
-          <tr><td><label>Password : <input name="txtpass" type="password" id="password"  value=""></td></tr>
-          <tr><td><input type="submit" value="Enviar"> </td></tr>
+      <!--barra de paginas-->
+      <ul class="nav nav-tabs" role="tablist">
+        <li><a href="index.php">Home</a></li>
+        <li class="active"><a href="">Login</a></li>
+        <li><a href="registro.php">Registro</a></li>
+      </ul>
+
+      <div class="row">
+        <div class="col-md-4">
+         <h4><?php echo $mensaje; ?></h4>            
+        </div>
+        <div class="col-md-4">
+         <h3>Inicio de Sesion</h3>
+        </div>
+        <div class="col-md-4"></div>
+      </div>
+
+    <div class="row">
+        <form action="validarlogin.php" method="post" name="login" class="form-horizontal" role="form">
+          <div class="form-group">
+            <label for="txtusuario" class="col-sm-3 control-label">Usuario:</label> 
+            <div class="col-sm-3">
+              <input type="text" name="txtusuario" id="txtusuario" class="form-control" placeholder="Usuario">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="txtpass" class="col-sm-3 control-label">Password:</label>
+            <div class="col-sm-3">
+              <input type="password" class="form-control" name="txtpass" id="password" placeholder="Password">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-5 col-sm-10">
+              <button type="submit" class="btn btn-info">Enviar</button>
+            </div>
+          </div>
         </form>
-      </table>
-    <div/>
+    </div>
+  </div>
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

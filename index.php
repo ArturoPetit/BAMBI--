@@ -36,39 +36,40 @@
   </head>
   <body>
     <div class="container">
+        <ul class="nav nav-tabs" role="tablist">
+        <li class="active"><a href="index.php">Home</a></li>
       <?php 
-        echo "<table>";
-        echo "<tr>";
         if (isset($_SESSION["nombre"])){
-          echo "<td coldspan =4><p align='right'>Hola-".$_SESSION["nombre"];
-          echo "<a href='cerrar.php'>--|Salir|--</a>";
-          #otra celda
           if($tipo==1){
-            echo "<a href='nuevotema.php'>--|New Tema|--</a>"; 
-            echo "<a href='editarusuarios.php'>--|Edit User|--</a></p></td>";
-            echo "</tr>";
-          }
+            ?>
+              <li><a href="nuevotema.php">Nuevo Tema</a></li>
+              <li><a href="editarusuarios.php">Editar Usuarios</a></li>
+           <?php
+         } 
+         ?>
+          <li><a href="cerrar.php">Salir</a></li>
+        <?php
         }
         else{
-          echo "<tr>";
-          echo "<td coldspan =4><p align='right'><a href='login.php'>Iniciar Sesion|</a>"; 
-          echo "<a href='registro.php'>|Registarse|</a></p></td>";
-          echo "</tr>";
-         }
-        echo "</table>";
-      ?>  
-      <h1>BLOG Super overpower</h1>
+          ?>
+          <li><a href="login.php">Login</a></li>
+          <li><a href="registro.php">Registro</a></li>
+          <?php
+         } 
+         ?>
+       </ul>
+      <h2>BLOG Super overpower</h2>
       <?php
         $conexion=@mysql_connect(SQL_HOST, SQL_USER, SQL_PWD);
         $db =@mysql_select_db(SQL_DB, $conexion) or die(mysql_error());
         $sql="select temas.*, usuarios.nombre from temas, usuarios where temas.id_usuario = usuarios.id order by id desc";
         $temas=@mysql_query($sql,$conexion);
-        echo "<table>";
+        echo "<table class='table table-bordered'>";
         while  ($tema =@mysql_fetch_array($temas)){
         echo "<tr>";
-        echo"<td><h1>".$tema['titulo']."</h1></td>"; 
-        echo"<td><h5>".$tema['fecha_pub']."</h5></td>";
-        echo"<td><h3>".$tema['nombre']."</h3></td>";
+        echo"<td><h3>".$tema['titulo']."</h3></td>"; 
+        echo"<td><h6>".$tema['fecha_pub']."</h6></td>";
+        echo"<td><h4>".$tema['nombre']."</h4></td>";
         echo"</tr>";
         echo "<tr>";
         echo "<td>".$tema['contenido']."</td>";
@@ -86,8 +87,8 @@
         $comentarios = mysql_query($sql1,$conexion);
         while ($comentario=@mysql_fetch_array($comentarios)){
           echo "<tr>";  
-          echo"<td><h3 align='left'>".$comentario['nombre']."</h3></td>";
-          echo"<td><h5 align='center'>".$comentario['fecha_pub']."</h5></td>";
+          echo"<td><h4>".$comentario['nombre']."</h4></td>";
+          echo"<td><h6>".$comentario['fecha_pub']."</h6></td>";
           echo"</tr>";
           echo"<tr>";
           echo"<td>".$comentario['comentario']."</td>";
