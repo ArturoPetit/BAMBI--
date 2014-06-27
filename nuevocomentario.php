@@ -34,25 +34,31 @@
     <![endif]-->
     </head>
   <body>
-  <div class="container">
-  <?php
-    echo"<form action='nuevocomentario.php' method='post' name='nuevocomentario'><br>";
-    echo "<table>";
-    echo "<tr><td><b>Nuevo Comentario</b></td></tr>";
+    <div class="container">
+      <!--barra de paginas-->
+      <ul class="nav nav-tabs" role="tablist">
+        <li><a href="index.php">Home</a></li>
+        <li class="active"><a href="">Nuevo Comentario</a></li>
+        <li><a href="cerrar.php">Salir</a></li>
+      </ul>
+      <div class="row">
+      <form action="nuevocomentario.php" method="post" name="nuevocomentario" class="form-horizontal" role="form">
+        <div class="form-group">
+          <?php echo "<tr><td><input type='hidden' value='".$id_tema."' name='id_tema'></td></tr>";?>
+          <label for="txtcomen" class="col-sm-2 control-label">Comentario:</label>
+          <div class="col-sm-5">
+            <textarea class="form-control" name="txtcomen" rows="3"></textarea>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-6 col-sm-10">
+            <button type="submit" class="btn btn-info">Enviar</button>
+          </div>
+        </div>
+        </form>
+      </div>
+    </div>
 
-    echo "<tr>";
-    echo "<tr><td><input type='hidden' value='".$id_tema."' name='id_tema'></td></tr>";
-    echo "</tr>";
-    echo "<tr>";
-    echo "<td><label>Comentario : <textarea name='txtcomen'></textarea></td>"; 
-    echo "</tr>";
-    echo "<tr>";
-    echo "<tr><td><input type='submit' value='Enviar'></td></tr>";
-    echo "</tr>";
-    echo "</table>";
-    echo "</form>";
-    ?>
-  </div>
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
