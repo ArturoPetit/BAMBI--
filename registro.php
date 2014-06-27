@@ -54,7 +54,7 @@
    <div class="container">
     <!--barra de paginas-->
     <ul class="nav nav-tabs" role="tablist">
-      <li><a href="index.php">Home</a></li>
+      <li><a href="index.php"><span class="glyphicon glyphicon-home"></span></a></li>
       <li><a href="login.php">Login</a></li>
       <li class="active"><a href="">Registro</a></li>
     </ul>

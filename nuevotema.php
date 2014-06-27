@@ -32,35 +32,35 @@
   </head>
   <body>
     <div class="container">
-
       <!--barra de paginas-->
       <ul class="nav nav-tabs" role="tablist">
-        <li><a href="index.php">Home</a></li>
+        <li><a href="index.php"><span class="glyphicon glyphicon-home"></span></a></li>
         <li class="active"><a href="">Nuevo Tema</a></li>
+        <li><a href="nuevotema.php">Nuevo Tema</a></li>
         <li><a href="editarusuarios.php">Editar Usuarios</a></li>
         <li><a href="cerrar.php">Salir</a></li>
       </ul>
-
-    <div class="row">
-    <form action="nuevotema.php" method="post" name="nuevotema" class="form-horizontal" role="form">
-      <div class="form-group">
-        <label for="txttema" class="col-sm-2 control-label">Nuevo Tema:</label>
-        <div class="col-sm-7">
-          <input type="text" name="txttema" id="txttema" class="form-control" placeholder="Titulo">
+      <div class="row">
+      <form action="nuevotema.php" method="post" name="nuevotema" class="form-horizontal" role="form">
+        <div class="form-group">
+          <label for="txttema" class="col-sm-2 control-label">Nuevo Tema:</label>
+          <div class="col-sm-7">
+            <input type="text" name="txttema" id="txttema" class="form-control" placeholder="Titulo">
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <label for="txtcon" class="col-sm-2 control-label">Contenido:</label>
-        <div class="col-sm-7">
-          <textarea class="form-control" name="txtcon" rows="3"></textarea>
+        <div class="form-group">
+          <label for="txtcon" class="col-sm-2 control-label">Contenido:</label>
+          <div class="col-sm-7">
+            <textarea class="form-control" name="txtcon" rows="3"></textarea>
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <div class="col-sm-offset-8 col-sm-10">
-          <button type="submit" class="btn btn-default">Enviar</button>
+        <div class="form-group">
+          <div class="col-sm-offset-8 col-sm-10">
+            <button type="submit" class="btn btn-default">Enviar</button>
+          </div>
         </div>
+        </form>
       </div>
-    </form>
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>

@@ -49,19 +49,55 @@
 	<META CHARSET="UTF-8">
 	<html>
 	<head>
-			<title>behhh</title>
+			<title>Editar Tema</title>
+			    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 	</head>
 	<body>
-		<center><br>
-			<h2>AÑADE EL NUEVO CONTENIDO AL BLOG</h2>
-				<form action="editartema.php" method="POST" name="comentario">
-					<input type="hidden" name="idusr" value="<?php echo $id_usuario; ?>">
-					<input type="hidden" name="idtema" value="<?php echo $id; ?>">
-					<input type="text" name="tema" id="tema" placeholder="Titulo del blog" size="100" value="<?php echo $rtitulo; ?>"><br><br>
-					<textarea name="contenido" id="contenido" cols="130" rows="10" placeholder="Presiona para insertar tu texto o contenido"><?php echo $rcontenido; ?></textarea><br>
-					<input type="submit" value="Publicar tema">
-					<a href='index.php'> Cancelar</a>
-				</form>
-		</center>
-	<body>
-	</html>
+		<div class="container">
+		      <!--barra de paginas-->
+      <ul class="nav nav-tabs" role="tablist">
+        <li><a href="index.php"><span class="glyphicon glyphicon-home"></span></a></li>
+        <li class="active"><a href="">Editar Tema</a></li>
+        <li><a href="nuevotema.php">Nuevo Tema</a></li>
+        <li><a href="editarusuarios.php">Editar Usuarios</a></li>
+        <li><a href="cerrar.php">Salir</a></li>
+      </ul>
+				 <div class="row">
+      <form action="editartema.php" method="post" name="comentario" class="form-horizontal" role="form">
+        <div class="form-group">
+          <label for="txttema" class="col-sm-2 control-label">Titulo del Tema:</label>
+          <div class="col-sm-7">
+
+			<input type="hidden" name="idusr" value="<?php echo $id_usuario; ?>">
+			<input type="hidden" name="idtema" value="<?php echo $id; ?>">
+
+            <input type="text" name="tema" id="tema" class="form-control" placeholder="Titulo del blog" value="<?php echo $rtitulo; ?>">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="txtcon" class="col-sm-2 control-label">Contenido del Tema:</label>
+          <div class="col-sm-7">
+            <textarea class="form-control" name="contenido" id="contenido" rows="3" <?php echo $rcontenido; ?>></textarea>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-8 col-sm-10">
+            <button type="submit" value="Publicar tema" class="btn btn-default">Enviar</button>
+          </div>
+        </div>
+        </form>
+      </div>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>

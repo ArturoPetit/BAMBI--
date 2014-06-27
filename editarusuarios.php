@@ -24,7 +24,7 @@
             ?>
             <!--barra de paginas-->
             <ul class="nav nav-tabs" role="tablist">
-              <li><a href="index.php">Home</a></li>
+              <li><a href="index.php"><span class="glyphicon glyphicon-home"></span></a></li>
               <li><a href="nuevotema.php">Nuevo Tema</a></li>
               <li class="active"><a href="">Editar Usuario</a></li>
               <li><a href="cerrar.php">Salir</a></li>

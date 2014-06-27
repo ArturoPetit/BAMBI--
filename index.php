@@ -37,7 +37,7 @@
   <body>
     <div class="container">
         <ul class="nav nav-tabs" role="tablist">
-        <li class="active"><a href="index.php">Home</a></li>
+        <li class="active"><a href="index.php"><span class="glyphicon glyphicon-home"></span></a></li>
       <?php 
         if (isset($_SESSION["nombre"])){
           if($tipo==1){
@@ -64,31 +64,34 @@
         $db =@mysql_select_db(SQL_DB, $conexion) or die(mysql_error());
         $sql="select temas.*, usuarios.nombre from temas, usuarios where temas.id_usuario = usuarios.id order by id desc";
         $temas=@mysql_query($sql,$conexion);
-        echo "<table class='table table-bordered'>";
+        echo "<table class='table table-striped'>";
         while  ($tema =@mysql_fetch_array($temas)){
-        echo "<tr>";
+        echo "<tr class='active'>";
         echo"<td><h3>".$tema['titulo']."</h3></td>"; 
         echo"<td><h6>".$tema['fecha_pub']."</h6></td>";
         echo"<td><h4>".$tema['nombre']."</h4></td>";
         echo"</tr>";
-        echo "<tr>";
+        echo "<tr class='active'>";
         echo "<td>".$tema['contenido']."</td>";
+        echo "<td></td>";
+        echo "<td></td>";
         echo "</tr>";
         echo "<tr>";
           if ($tipo==1) {
           echo "<td><a href='editartema.php?editar=".$tema['id']."'>Editar Tema</a></td>";
           #sql DELETE
-          echo"<td><a href='index.php?eliminartema=".$tema['id']."'>Eliminar Tema</a></td>";
+          echo"<td><a class='btn btn-danger' href='index.php?eliminartema=".$tema['id']."'><span class='glyphicon glyphicon-trash'></span> Eliminar Tema</a></td>";
            }
-        echo "<td><a href='like.php'>|Like|</a></p></td>";
+        echo "<td><a class='btn btn-primary' href='like.php'><span class='glyphicon glyphicon-thumbs-down'></span> Like</a></p></td>";
         echo "</tr>";
         $sql1  = "SELECT comentarios.*, usuarios.nombre from comentarios, temas, usuarios " . 
         "where comentarios.id_usuario = usuarios.id and comentarios.id_tema = temas.id and comentarios.id_tema =". $tema['id'];
         $comentarios = mysql_query($sql1,$conexion);
         while ($comentario=@mysql_fetch_array($comentarios)){
-          echo "<tr>";  
+          echo "<tr class='active'>";  
           echo"<td><h4>".$comentario['nombre']."</h4></td>";
           echo"<td><h6>".$comentario['fecha_pub']."</h6></td>";
+          echo "<td></td>";
           echo"</tr>";
           echo"<tr>";
           echo"<td>".$comentario['comentario']."</td>";
@@ -99,8 +102,10 @@
             } 
               echo "</tr>";  
         }
-        echo "<tr>";  
-        echo "<td> <a href='nuevocomentario.php?id_tema=".$tema['id']."'>Agregar Comentario</a></td>";
+        echo "<tr>";
+        echo "<td></td>";
+        echo "<td></td>";  
+        echo "<td class='info'><a href='nuevocomentario.php?id_tema=".$tema['id']."'>Agregar Comentario</a></td>";
         echo "</tr>";  
         }
         echo "</table>";

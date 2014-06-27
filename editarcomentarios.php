@@ -44,18 +44,37 @@
 		<![endif]-->
 	</head>
 	<body>
-		<form action="editarcomentarios.php" method="POST" name="comentario">	
-		<table>			
-			<tr><td>Editar comentario</td></tr>
-				<tr><td><input type="hidden" name="iddecomentario" value="<?php echo $iddecomentario; ?>"></td></tr>
-				<tr><td><textarea name="contenido" id="contenido" cols="70" rows="3" placeholder="Presiona para insertar tu texto o contenido"><?php echo $contenido; ?></textarea></td></tr>
-				<tr><td align="center"><input type="submit" value="Comentar"></td></tr>
-			</table>
-		</form>
-		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="js/bootstrap.min.js"></script>
-	</body>
+		<div class="container">
+			<!--barra de paginas-->
+			<ul class="nav nav-tabs" role="tablist">
+			<li><a href="index.php"><span class="glyphicon glyphicon-home"></span></a></li>
+			<li class="active"><a href="">Editar Tema</a></li>
+			<li><a href="nuevotema.php">Nuevo Tema</a></li>
+			<li><a href="editarusuarios.php">Editar Usuarios</a></li>
+			<li><a href="cerrar.php">Salir</a></li>
+			</ul>
+		 <div class="row">
+	      <form action="editarcomentarios.php" method="post" name="comentario" class="form-horizontal" role="form">
+
+			<input type="hidden" name="iddecomentario" value="<?php echo $iddecomentario; ?>">
+
+	        <div class="form-group">
+	          <label for="txtcon" class="col-sm-2 control-label">Contenido del Tema:</label>
+	          <div class="col-sm-7">
+	            <textarea class="form-control" name="contenido" id="contenido" rows="3" <?php echo $contenido; ?>></textarea>
+	          </div>
+	        </div>
+	        <div class="form-group">
+	          <div class="col-sm-offset-8 col-sm-10">
+	            <button type="submit" value="Comentar" class="btn btn-default">Enviar</button>
+	          </div>
+	        </div>
+	        </form>
+	      </div>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
 </html>
-<form action="">
